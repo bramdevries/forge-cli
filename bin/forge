@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__.'/../vendor/autoload.php';
+
+$container = new \Illuminate\Container\Container();
+$provider = new \Bramdevries\ForgeCli\ForgeCliServiceProvider($container);
+$provider->register();
+
+$app = new \Bramdevries\ForgeCli\Console\Console($container);
+
+return $app->run();

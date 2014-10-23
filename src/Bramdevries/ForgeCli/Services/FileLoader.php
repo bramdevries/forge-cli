@@ -1,6 +1,6 @@
 <?php
 
-namespace Bramdevries\ForgeCli;
+namespace Bramdevries\ForgeCli\Services;
 
 use League\Flysystem\Filesystem;
 
@@ -22,6 +22,8 @@ class FileLoader
 	 */
 	protected $filesystem;
 
+	protected $sites;
+
 	/**
 	 * @param Filesystem $filesystem
 	 */
@@ -29,7 +31,7 @@ class FileLoader
 	{
 		$this->filesystem = $filesystem;
 	}
-	
+
 	/**
 	 * @param $identifier
 	 * @return mixed
@@ -38,7 +40,7 @@ class FileLoader
     {
 		$sites = json_decode($this->loadFile(), true);
 
-		return $sites[$identifier];
+		return isset($sites[$identifier]) ? $sites[$identifier] : "$identifier does not exist";
     }
 
 	/**
@@ -46,7 +48,11 @@ class FileLoader
 	 */
 	private function loadFile()
 	{
-		return $this->filesystem->read($this->file);
+		if (!$this->sites) {
+			$this->sites = $this->filesystem->read($this->file);
+		}
+
+		return $this->sites;
 	}
 
 	/**

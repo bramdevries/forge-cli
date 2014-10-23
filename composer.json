@@ -14,9 +14,14 @@
 		}
 	},
     "minimum-stability": "dev",
+	"bin": [
+		"bin/forge"
+	],
     "require": {
         "illuminate/console": "~4.2",
-        "league/flysystem": "~0.5@dev"
+        "league/flysystem": "~0.5@dev",
+        "illuminate/support": "~5.0@dev",
+        "illuminate/container": "~5.0@dev"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0"

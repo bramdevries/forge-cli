@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Bramdevries\ForgeCli;
+namespace spec\Bramdevries\ForgeCli\Services;
 
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
@@ -44,4 +44,10 @@ class FileLoaderSpec extends ObjectBehavior
 			'token'  => 'secret',
 		]);
 	}
+
+	function it_should_return_a_message_if_the_site_does_not_exist()
+	{
+		$this->getSite('site3')->shouldReturn('site3 does not exist');
+	}
+
 }
