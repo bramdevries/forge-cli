@@ -1,0 +1,24 @@
+{
+    "name": "bramdevries/forge-cli",
+    "description": "Run your forge deployments from the command line",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bram Devries",
+            "email": "bram@madewithlove.be"
+        }
+    ],
+	"autoload": {
+		"psr-0": {
+			"Bramdevries\\ForgeCli": "src/"
+		}
+	},
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/console": "~4.2",
+        "league/flysystem": "~0.5@dev"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    }
+}

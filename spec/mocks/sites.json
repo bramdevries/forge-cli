@@ -1,0 +1,14 @@
+{
+	"site1": {
+		"name": "site-1.be",
+		"server": 1,
+		"site": 1,
+		"token": "secret"
+	},
+	"site2": {
+		"name": "site-2.be",
+		"server": 1,
+		"site": 2,
+		"token": "secret"
+	}
+}
