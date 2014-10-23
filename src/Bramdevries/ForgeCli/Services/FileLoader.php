@@ -38,7 +38,7 @@ class FileLoader
 	 */
 	public function getSite($identifier)
     {
-		$sites = json_decode($this->loadFile(), true);
+		$sites = $this->getSites();
 
 		return isset($sites[$identifier]) ? $sites[$identifier] : "$identifier does not exist";
     }
@@ -53,6 +53,11 @@ class FileLoader
 		}
 
 		return $this->sites;
+	}
+
+	public function save($sites)
+	{
+		return $this->filesystem->put($this->getFile(), json_encode($sites));
 	}
 
 	/**
@@ -70,4 +75,12 @@ class FileLoader
     {
         return $this->file;
     }
+
+	/**
+	 * @return mixed
+	 */
+	public function getSites()
+	{
+		return json_decode($this->loadFile(), true);
+	}
 }

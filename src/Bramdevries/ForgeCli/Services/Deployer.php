@@ -4,7 +4,7 @@ namespace Bramdevries\ForgeCli\Services;
 
 use Bramdevries\ForgeCli\Services\Helpers\Curl;
 
-class DeploySite
+class Deployer
 {
 	protected $fileloader;
 
@@ -25,6 +25,15 @@ class DeploySite
 		]);
 
 		return $this->call($url);
+	}
+
+	public function addSite($info)
+	{
+		$sites  = $this->fileloader->getSites();
+
+		$sites[$info['name']] = $info;
+
+		$this->fileloader->save($sites);
 	}
 
 	private function call($url)

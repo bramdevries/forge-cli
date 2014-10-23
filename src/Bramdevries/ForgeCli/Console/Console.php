@@ -3,6 +3,7 @@
 namespace Bramdevries\ForgeCli\Console;
 
 
+use Bramdevries\ForgeCli\Commands\AddSiteCommand;
 use Bramdevries\ForgeCli\Commands\DeployCommand;
 use Illuminate\Console\Application;
 
@@ -16,7 +17,6 @@ class Console extends Application
 
 		// Register the deploy command
 		$this->add(new DeployCommand);
-
-
+		$this->add(new AddSiteCommand);
 	}
 } 
