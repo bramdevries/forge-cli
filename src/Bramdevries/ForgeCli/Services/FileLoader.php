@@ -48,6 +48,10 @@ class FileLoader
 	 */
 	private function loadFile()
 	{
+		if (!$this->filesystem->has($this->getFile())) {
+			$this->filesystem->write($this->getFile(), '');
+		}
+
 		if (!$this->sites) {
 			$this->sites = $this->filesystem->read($this->file);
 		}
