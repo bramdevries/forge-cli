@@ -11,7 +11,7 @@ class Console extends Application
 {
 	public function __construct($container)
 	{
-		parent::__construct();
+		parent::__construct('forge-cli', 0.1);
 
 		$this->setLaravel($container);
 
